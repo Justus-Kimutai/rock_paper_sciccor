@@ -33,14 +33,14 @@ function playRound(){
 
         player.textContent = playerPoint
 
-        statusText.textContent = `You won`
+        statusText.textContent = `You won computer Chose ${computerSelection}`
 
    }else if(computerSelection === 'paper' && playerSelection === 'rock'){
 
         computerPoint++
 
         computer.textContent = computerPoint
-        statusText.textContent = `You lost`
+        statusText.textContent = `You lost computer Chose ${computerSelection}`
 
    }else if(computerSelection === 'scissor' && playerSelection === 'paper'){
 
@@ -48,14 +48,14 @@ function playRound(){
      computerPoint++
 
      computer.textContent = computerPoint
-     statusText.textContent = `You lost`
+     statusText.textContent = `You lost computer Chose ${computerSelection}`
 
    }else if(computerSelection === 'paper' && playerSelection === 'scissor'){
 
         playerPoint++
 
         player.textContent = playerPoint
-        statusText.textContent = `You won`
+        statusText.textContent = `You won computer Chose ${computerSelection}`
         
 
    }else if(computerSelection === 'rock' && playerSelection === 'scissor'){
@@ -63,14 +63,14 @@ function playRound(){
           computerPoint++
 
           computer.textContent = computerPoint
-          statusText.textContent = `You lost`
+          statusText.textContent = `You lost computer Chose ${computerSelection}`
 
    }else if(computerSelection === 'scissor' && playerSelection === 'rock'){ 
 
         playerPoint++
 
         player.textContent = playerPoint
-        statusText.textContent = `You won`
+        statusText.textContent = `You won computer Chose ${computerSelection}`
 
    }else{
      statusText.textContent = `A tie`
