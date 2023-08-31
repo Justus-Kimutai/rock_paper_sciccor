@@ -19,6 +19,9 @@ img{
     margin: 0 auto;
     width: 80%;
 }
+.header__text{
+    opacity: .8;
+}
 
 .flex{
     display: flex;
@@ -34,6 +37,7 @@ img{
 }
 table{
     width: 100%;
+    margin-top: 50px;
 }
 
 table, th, td {
@@ -44,6 +48,7 @@ table, th, td {
 
 th, td {
     background-color: #ff9d00ef;
+    padding: .25rem 0;
 }
 
 
@@ -82,3 +87,23 @@ th, td {
     color: black;
     font-size: 1.1rem;
 }
+
+@media (min-width:500px) {
+
+    
+    .container{
+        width: 50%;
+    }
+    .score-board{
+        width: 40%;
+    }
+    table{
+        margin-top: 100px;
+        border-radius: 5px;
+    }
+
+    th, td{
+        padding: .5rem .75rem;
+    }
+}
+   
