@@ -14,36 +14,43 @@
         </div>
    </div>
 
-   <!-- <div class="weapons">
+   <div class="weapons">
         <div class="container">
-
-            <div class="img-div">
-                <img src="images/paper-1.png" alt="paper">
-                <p class="img-text">Paper</p>
-            </div>
-
-            <div class="img-div">
-                <img src="images/Rock-1.png" alt="rock">
-                <p class="img-text">Rock</p>
-            </div>
-
-            <div class="img-div">
-                <img src="images/scissor-1.png" alt="Scissor">
-                <p class="img-text">Scissor</p>
+            <div class="flex">
+    
+                <div id="paper" class="img-div">
+                    <img src="images/paper-1.png" alt="paper">
+                    <p class="img-text">Paper</p>
+                </div>
+    
+                <div id="rock" class="img-div">
+                    <img src="images/Rock-1.png" alt="rock">
+                    <p class="img-text">Rock</p>
+                </div>
+    
+                <div id="scissor" class="img-div">
+                    <img src="images/scissor-1.png" alt="Scissor">
+                    <p class="img-text">Scissor</p>
+                </div>
+                
             </div>
 
         </div>
-   </div> -->
+   </div>
 
    <div class="score-board">
         <div class="container">
             <table>
                 <tr>
-                    <td>Score Board</td>
+                    <th colspan="2">Score Board</th>
                 </tr>
                 <tr>
                     <td>You</td>
                     <td>Computer</td>
+                </tr>
+                <tr>
+                    <td class="player">0</td>
+                    <td class="computer">0</td>
                 </tr>
             </table>
         </div>
@@ -55,6 +62,14 @@
         </div>
    </div>
 
-    <!-- <script src="app.js"></script> -->
+   <div class="reset">
+    <div class="resetContent">
+        <p class="resetText">Congratulations You beat the computer</p>
+        <button class="resetBtn">Restart Game</button>
+    </div>
+   </div>
+
+  
+    <script src="app.js"></script>
 </body>
 </html>

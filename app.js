@@ -1,3 +1,18 @@
+const buttons = document.querySelectorAll('.img-div')
+const player = document.querySelector('.player')
+const computer = document.querySelector('.computer')
+const statusText = document.querySelector('.status-text')
+const resetDiv = document.querySelector('.reset')
+const resetText = document.querySelector('.resetText')
+const resetBtn = document.querySelector('.resetBtn')
+let computerPoint = 0
+let playerPoint = 0
+
+buttons.forEach(button=>{
+    button.addEventListener('click',playRound)
+})
+
+
 function getComputerChoice(){
     let choices = ['rock','paper','scissor']
 
@@ -6,79 +21,86 @@ function getComputerChoice(){
     return choices[randomChoice]
 }
 
-function getPlayerChoice(){
-    let playersChoice = prompt('Enter your Choice')
+  
 
-   return playersChoice.toLowerCase()
-}
-
-function playRound(computerSelection,playerSelection){
-    let results = ''
-    let win = null
+function playRound(){
+    let playerSelection = this.getAttribute("id")
+    let computerSelection = getComputerChoice()
 
    if(computerSelection === 'rock' && playerSelection === 'paper'){
-    results = 'You win, paper swallows rock'
-    win = true
-    console.log('You win, paper swallows rock')
+
+        playerPoint++
+
+        player.textContent = playerPoint
+
+        statusText.textContent = `You won`
+
    }else if(computerSelection === 'paper' && playerSelection === 'rock'){
-    results = 'You Loose, Paper swallows rock'
-    win = false
-    console.log('You Loose, Paper swallows rock')
+
+        computerPoint++
+
+        computer.textContent = computerPoint
+        statusText.textContent = `You lost`
+
    }else if(computerSelection === 'scissor' && playerSelection === 'paper'){
-    results = 'You Loose, scissor cuts paper'
-    win = false
-    console.log('You Loose, scissor cuts paper')
+
+
+     computerPoint++
+
+     computer.textContent = computerPoint
+     statusText.textContent = `You lost`
+
    }else if(computerSelection === 'paper' && playerSelection === 'scissor'){
-    results = 'You win, scissor beats paper'
-    win = true
-    console.log('You win, scissor beats paper')
+
+        playerPoint++
+
+        player.textContent = playerPoint
+        statusText.textContent = `You won`
+        
+
    }else if(computerSelection === 'rock' && playerSelection === 'scissor'){
-    results = 'You Loose, rock beats scissor'
-    win = false
-    console.log('You Loose, rock beats scissor')
-   }else if(computerSelection === 'scissor' && playerSelection === 'rock'){
-    results = 'You win, rock beats scissor'
-    win = true
-    console.log('You win, rock beats scissor')
-    win = true
+
+          computerPoint++
+
+          computer.textContent = computerPoint
+          statusText.textContent = `You lost`
+
+   }else if(computerSelection === 'scissor' && playerSelection === 'rock'){ 
+
+        playerPoint++
+
+        player.textContent = playerPoint
+        statusText.textContent = `You won`
+
    }else{
-    results = 'a tie'
-    console.log('a tie')
-    win = null
+     statusText.textContent = `A tie`
    }
+   evaluateGame()
+   
+ }
 
-   return win
-}
+ function evaluateGame(){
+     if(computerPoint === 5){
+          resetText.textContent = `You lost Big man ...Too bad`
+          resetDiv.style.display = 'block'
+          resetGame()
+     }else if(playerPoint === 5){
+          resetText.textContent = `Congrats Big man ...You won`
+          resetDiv.style.display = 'block'
+          resetGame()
+     }
+ }
+   
+ function resetGame(){
 
+     computer.textContent = 0
+     player.textContent = 0
+     statusText.textContent = ''
 
-function game(){
-    
-    let computerPoints = 0
-    let playersPoint = 0
+     computerPoint = 0
+     playerPoint = 0
 
-    for(i=1;i<=5;i++){
-      let champ = playRound(getComputerChoice(),getPlayerChoice())
-        if(champ === true){
-            playersPoint++
-        }else if(champ === false){
-            computerPoints++
-        }else{
-            computerPoints = computerPoints
-            playersPoint = playersPoint
-        }
-
-    }
-    if(playersPoint>computerPoints){
-        results = 'You won Congrats'
-    }else if(playersPoint === computerPoints){
-        results = 'a tie'
-    }else{
-        'you lost'
-    }
-    
-    console.log(results)
-    return results
-
-}
-
-game()
+     resetBtn.addEventListener('click',()=>{
+          resetDiv.style.display = 'none'
+     })
+ }
